@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Predictor</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #eef2f3; padding: 20px; }
+        .card { background: white; max-width: 600px; 
+                 margin: auto; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; text-align: center; }
+        p { margin: 10px 0 5px; font-weight: bold; font-size: 14px; }
+        select { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { width: 100%; padding: 15px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px; }
+        .result { margin-top: 20px; font-weight: bold; color: #e74c3c; text-align: center; font-size: 20px; border-top: 2px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Symptom Assessment Form</h2>
+        <form action="/predict" method="post">
+            <p>Sadness Level:</p>
+            <select name="sadness"><option value="0">Seldom</option><option value="1">Sometimes</option><option value="2">Usually</option><option value="3">Most-Often</option></select>
+            <p>Euphoric State:</p>
+            <select name="euphoric"><option value="0">Seldom</option><option value="1">Sometimes</option><option value="2">Usually</option><option value="3">Most-Often</option></select>
+            <p>Exhausted:</p>
+            <select name="exhausted"><option value="0">Seldom</option><option value="1">Sometimes</option><option value="2">Usually</option><option value="3">Most-Often</option></select>
+            <p>Sleep Disorder:</p>
+            <select name="sleep"><option value="0">Seldom</option><option value="1">Sometimes</option><option value="2">Usually</option><option value="3">Most-Often</option></select>
+            <p>Mood Swings:</p>
+            <select name="mood"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Suicidal Thoughts:</p>
+            <select name="suicidal"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Anorexia:</p>
+            <select name="anorxia"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Authority Respect:</p>
+            <select name="respect"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Try-Explanation:</p>
+            <select name="explanation"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Aggressive Response:</p>
+            <select name="aggressive"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Ignore & Move-On:</p>
+            <select name="ignore"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Nervous Breakdown:</p>
+            <select name="nervous"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Admit Mistakes:</p>
+            <select name="mistakes"><option value="1">YES</option><option value="0">NO</option></select>
+            <p>Overthinking:</p>
+            <select name="overthinking"><option value="1">YES</option><option value="0">NO</option></select>
+            <button type="submit">Analyze Symptoms</button>
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

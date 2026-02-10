@@ -1,0 +1,7 @@
+flask
+pandas
+scikit-learn
+gunicorn
+numpy
+markupsafe==2.1.5
+werkzeug==3.0.3
